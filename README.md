@@ -6,7 +6,7 @@ Here we are in the year 2025 and yet another modification of Brandon Withrow's [
 
 This one includes some great changes from [Jeremy Whelchel's updated version](https://github.com/jeremywhelchel/simpsonstv), notably the touchscreen support and adds onto those as well for more recent Raspberry Pi OS (Bullseye) support.
 
-Of course, as I finish and publish this project that I started mid last 2024, Bullseye is now considered legacy and superceded by Bookworm. Although I have not tested Bookworm, considering the core issue was the older players that wouldn't work, I don't see any reason why this wouldn't still work on Bookworm.
+Of course, as I finish and publish this project that I started mid 2024, Bullseye is now considered legacy and superseded by Bookworm. Although I have not tested Bookworm, considering the core issue was the older players that wouldn't work, I don't see any reason why this wouldn't still work on Bookworm.
 
 ## Modern Raspberry Pi OS (Bullseye) support
 
