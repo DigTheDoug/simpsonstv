@@ -4,11 +4,13 @@
 
 Here we are in the year 2025 and yet another modification of Brandon Withrow's [Waveshare-version TV build](https://withrow.io/simpsons-tv-build-guide-waveshare).
 
-This one includes some great changes from [Jeremy Whelchel's updated version](https://github.com/jeremywhelchel/simpsonstv), notably the touchscreen support and adds onto those as well for more recent Raspberry Pi OS (Bookworm) support.
+This one includes some great changes from [Jeremy Whelchel's updated version](https://github.com/jeremywhelchel/simpsonstv), notably the touchscreen support and adds onto those as well for more recent Raspberry Pi OS (Bullseye) support.
 
-## Modern Raspberry Pi OS (Bookworm) support
+Of course, as I finish and publish this project that I started mid last 2024, Bullseye is now considered legacy and superceded by Bookworm. Although I have not tested Bookworm, considering the core issue was the older players that wouldn't work, I don't see any reason why this wouldn't still work on Bookworm.
 
-The core issue in making this project in 2025 (I actually began in 2024) is that the original guide uses the legacy version of RaspberryPi OS (Buster) along with a video player `omxplayer` that no longer works on the newer version of the OS. Jeremy's version uses a newer player `mpv` that unfortunately I also could not get to work on the newest OS (Bookworm) (Lite) on a PI Zero. I didn't want to rely on the legacy OS, so I wanted to see if I could get it working in the modern OS using trusty ol' [VLC][vlc].
+## Modern Raspberry Pi OS (Bullseye) support
+
+The core issue in making this project in 2025 (I actually began in 2024) is that the original guide uses the legacy version of RaspberryPi OS (Buster) along with a video player `omxplayer` that no longer works on the newer version of the OS. Jeremy's version uses a newer player `mpv` that unfortunately I also could not get to work on the newest OS (Bullseye) (2024-03-12, Lite) on a PI Zero. I didn't want to rely on the legacy OS, so I wanted to see if I could get it working in the modern OS using trusty ol' [VLC][vlc].
 
 After much thrashing here it is.
 
@@ -69,11 +71,11 @@ VLC will also not run as root from the service files, so make sure that your `.s
 
 I am also including my full `config.txt` file. I wouldn't recommend using or copying it wholesale, but maybe some things in there will help you if you run into trouble.
 
-I also used an [updated version of the 3D model by Freakadude][https://www.thingiverse.com/thing:5027609] that printed and worked very well.
+I also used an [updated version of the 3D model by Freakadude](https://www.thingiverse.com/thing:5027609) that printed and worked very well.
 
 ---
 
-Further notes from Jeremy's version that are helpful:
+_Further notes from Jeremy's version that are helpful:_
 
 ## Touchscreen player control
 
