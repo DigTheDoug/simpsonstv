@@ -2,7 +2,7 @@
 
 ![simpsons clock](itneverends.jpg)
 
-Here we are in the year 2025 and yet another modification of Brandon Withrow's [Waveshare-version TV build](https://withrow.io/simpsons-tv-build-guide-waveshare).
+Here we are in the year 2025 and yet another modification of Brandon Withrow's Simpsons TV [Waveshare-version TV build](https://withrow.io/simpsons-tv-build-guide-waveshare).
 
 This one includes some great changes from [Jeremy Whelchel's updated version](https://github.com/jeremywhelchel/simpsonstv), notably the touchscreen support and adds onto those as well for more recent Raspberry Pi OS (Bullseye) support.
 
