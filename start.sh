@@ -9,6 +9,7 @@ cvlc \
   --width=640 \
   --height=480 \
   --avcodec-hw=none \
+  --no-qt-video-autoresize \
   --no-osd \
   --no-xlib \
   --loop \
