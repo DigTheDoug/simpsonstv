@@ -2,7 +2,8 @@
 
 import evdev
 import logging
-import socket
+from python_vlc_http import HttpVLC
+import time
 
 # This is oddly swapped. X is actually the long dimension on the physical screen.
 MAX_X = 480
@@ -12,40 +13,32 @@ MAX_Y = 640
 X_MARGIN = 100
 
 # How far to seek fwd/back
-SEEK_SECS = 30
-
-# Must match MPV's --input-ipc-server flag
-SOCKET_PATH = "/tmp/mpvsocket"
+SEEK_FWD = '+45'
+SEEK_BACK = '-15'
 
 
-def SendMPV(msg: str):
-    logging.info("MPV command: %s", msg)
-    msg += "\n"
-    client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    client.connect(SOCKET_PATH)
-    sent = client.send(msg.encode())
-    response = client.recv(4096)
-    logging.info(f"Received response: {response.decode().strip()}")
-    client.close()
-
-
-# Commands here: https://mpv.io/manual/master/#json-ipc
+# Commands here: https://github.com/MatejMecka/python-vlc-http
 def Act(x: int, y: int, delta_x: int, delta_y: int):
-    # Swipe left
-    if delta_x < -(MAX_X / 2):
-        SendMPV("playlist-prev")
     # Swipe right
-    elif delta_x > MAX_X / 2:
-        SendMPV("playlist-next")
+    if delta_x > MAX_X / 2:
+        logging.info("VLC command: playlist-next")
+        controller.next_track()
+    # Swipe left
+    elif delta_x < -(MAX_X / 2):
+        logging.info("VLC command: playlist-prev")
+        controller.previous_track()
+    # Right touch
+    elif x > MAX_X - X_MARGIN:
+        logging.info(f"VLC command: seek {SEEK_FWD}")
+        controller.seek(SEEK_FWD)
     # Left touch
     elif x < X_MARGIN:
-        SendMPV(f"seek {0-SEEK_SECS}")
+        logging.info(f"VLC command: seek {SEEK_BACK}")
+        controller.seek(SEEK_BACK)
     # Middle touch
-    elif x > MAX_X - X_MARGIN:
-        SendMPV(f"seek {SEEK_SECS}")
-    # Right touch
     else:
-        SendMPV("cycle pause")
+        logging.info("VLC command: cycle pause")
+        controller.pause()
 
 
 def main():
@@ -77,5 +70,10 @@ def main():
             elif event.code == evdev.ecodes.ABS_MT_POSITION_Y:
                 x = MAX_X - event.value
 
+# At one point this sleep was needed to ensure the VLC service has
+# started already, not sure if it still is, but it's not hurting anything
+time.sleep(3)
 
+# The IP and password values here are defined in the start.sh script
+controller = HttpVLC('http://127.0.0.1:9090', '', '1234')
 main()

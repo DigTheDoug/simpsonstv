@@ -38,10 +38,10 @@ def main():
     while True:
         # If you are having and issue with the button doing the opposite of what you want
         # IE Turns on when it should be off, change this line to:
-        # input = not GPIO.input(26)
-        inp = GPIO.input(26)
-        if inp != screen_on:
-            screen_on = inp
+        # input = GPIO.input(26)
+        input = not GPIO.input(26)
+        if input != screen_on:
+            screen_on = input
             if screen_on:
                 turnOnScreen()
             else:
