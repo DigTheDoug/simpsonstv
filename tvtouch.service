@@ -3,9 +3,9 @@ Description=tvtouch
 After=network.target
 
 [Service]
-WorkingDirectory=/home/u/
-User=u
-ExecStart=/usr/bin/python3 /home/u/touch.py
+WorkingDirectory=/home/bort/
+User=bort
+ExecStart=/usr/bin/python3 /home/bort/simpsonstv/touch.py
 Restart=always
 
 [Install]

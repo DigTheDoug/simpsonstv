@@ -3,9 +3,9 @@ Description=tvbuttons
 After=network.target
 
 [Service]
-WorkingDirectory=/home/u/
-User=u
-ExecStart=/usr/bin/python3 /home/u/buttons.py
+WorkingDirectory=/home/bort/
+User=bort
+ExecStart=/usr/bin/python3 /home/bort/simpsonstv/buttons.py
 Restart=always
 
 [Install]

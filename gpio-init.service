@@ -1,0 +1,12 @@
+[Unit]
+Description=GPIO initialization
+Before=tvplayer.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/raspi-gpio set 18 op dl
+ExecStart=/usr/bin/raspi-gpio set 19 op a5
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,11 +1,11 @@
 [Unit]
 Description=tvplayer
-After=network.target
+After=network.target graphical.target
 
 [Service]
-WorkingDirectory=/home/u/
-User=u
-ExecStart=/home/u/start.sh
+WorkingDirectory=/home/bort/
+User=bort
+ExecStart=/home/bort/simpsonstv/start.sh
 Restart=always
 
 [Install]
